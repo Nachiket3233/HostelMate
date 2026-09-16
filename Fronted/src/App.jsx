@@ -14,6 +14,12 @@ function App() {
   return (
     <>
       <Login />
+      <Dashboard />
+      <RoomAllocation />
+      <RoomDetails />
+      <Complaints />
+      <Payments />
+      <Attendance />
     </>
   );
 }
