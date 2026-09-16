@@ -25,10 +25,14 @@ const Login = ({ onLoginSuccess }) => {
     }
 
     // Agar dono sahi hain:
+    alert('✓ Login Successful! Welcome to HostelMate Dashboard.');
     if (onLoginSuccess) {
       onLoginSuccess();
     }
-    navigate('/dashboard');
+    const dashElement = document.querySelector('.dashboard-layout');
+    if (dashElement) {
+      dashElement.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
