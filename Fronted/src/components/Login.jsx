@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
 const Login = ({ onLoginSuccess }) => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   
@@ -25,9 +27,8 @@ const Login = ({ onLoginSuccess }) => {
     // Agar dono sahi hain:
     if (onLoginSuccess) {
       onLoginSuccess();
-    } else {
-      alert(`Success! Logged in as ${username}`);
     }
+    navigate('/dashboard');
   };
 
   return (

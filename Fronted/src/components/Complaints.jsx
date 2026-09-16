@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Complaints.css';
 
 const Complaints = ({ onBack }) => {
+  const navigate = useNavigate();
   const [complaintsList, setComplaintsList] = useState([
     { id: 'HM-1092', category: 'Electricity', title: 'Study lamp socket sparking', date: '14 Sep 2026', status: 'In Progress', priority: 'High', adminComment: 'Electrician assigned, will visit by tomorrow morning' },
     { id: 'HM-1045', category: 'Plumbing', title: 'Washroom tap leakage', date: '02 Sep 2026', status: 'Resolved', priority: 'Medium', adminComment: 'Replaced tap washer on 03 Sep' },
@@ -38,11 +40,12 @@ const Complaints = ({ onBack }) => {
           <h3 className="fw-bold text-dark mb-1">⚠️ Hostel Complaint Box</h3>
           <p className="text-muted small mb-0">Submit maintenance issues and track resolution status in real-time</p>
         </div>
-        {onBack && (
-          <button className="btn btn-outline-primary btn-sm rounded-pill px-3" onClick={onBack}>
-            ← Back to Dashboard
-          </button>
-        )}
+        <button 
+          className="btn btn-outline-primary btn-sm rounded-pill px-3" 
+          onClick={() => onBack ? onBack() : navigate('/dashboard')}
+        >
+          ← Back to Dashboard
+        </button>
       </div>
 
       <div className="row g-4">

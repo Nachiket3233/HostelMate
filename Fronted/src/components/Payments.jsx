@@ -1,7 +1,9 @@
-﻿import React from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Payments.css';
 
 const Payments = ({ onBack }) => {
+  const navigate = useNavigate();
   const paymentHistory = [
     { id: 'TXN-98214', description: 'Hostel Semester Fee (Sem 1)', amount: '₹ 15,000', date: '01 Aug 2026', status: 'Paid', receipt: 'receipt_aug_2026.pdf' },
     { id: 'TXN-98950', description: 'August Mess Bill', amount: '₹ 2,650', date: '05 Sep 2026', status: 'Paid', receipt: 'receipt_sep_2026.pdf' },
@@ -15,11 +17,12 @@ const Payments = ({ onBack }) => {
           <h3 className="fw-bold text-dark mb-1">💳 Fee & Mess Payments</h3>
           <p className="text-muted small mb-0">Pay pending dues online and download official fee receipts in PDF</p>
         </div>
-        {onBack && (
-          <button className="btn btn-outline-primary btn-sm rounded-pill px-3" onClick={onBack}>
-            ← Back to Dashboard
-          </button>
-        )}
+        <button 
+          className="btn btn-outline-primary btn-sm rounded-pill px-3" 
+          onClick={() => onBack ? onBack() : navigate('/dashboard')}
+        >
+          ← Back to Dashboard
+        </button>
       </div>
 
       {/* Due Summary Card */}

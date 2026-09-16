@@ -1,7 +1,9 @@
-﻿import React from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Attendance.css';
 
 const Attendance = ({ onBack }) => {
+  const navigate = useNavigate();
   const logs = [
     { date: '16 Sep 2026', inTime: '08:15 PM', outTime: '04:30 PM', status: 'Present' },
     { date: '15 Sep 2026', inTime: '09:10 PM', outTime: '05:00 PM', status: 'Present' },
@@ -18,11 +20,12 @@ const Attendance = ({ onBack }) => {
           <h3 className="fw-bold text-dark mb-1">📅 Attendance & Digital QR Pass</h3>
           <p className="text-muted small mb-0">Track daily biometric / QR gate entries and check-in records</p>
         </div>
-        {onBack && (
-          <button className="btn btn-outline-primary btn-sm rounded-pill px-3" onClick={onBack}>
-            ← Back to Dashboard
-          </button>
-        )}
+        <button 
+          className="btn btn-outline-primary btn-sm rounded-pill px-3" 
+          onClick={() => onBack ? onBack() : navigate('/dashboard')}
+        >
+          ← Back to Dashboard
+        </button>
       </div>
 
       <div className="row g-4 mb-4">

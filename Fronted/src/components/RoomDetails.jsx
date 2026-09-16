@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './RoomDetails.css';
 
 const RoomDetails = ({ onBack }) => {
+  const navigate = useNavigate();
   const roommates = [
     { name: 'Aditya Singh', branch: 'Computer Science (3rd Year)', bed: 'Bed 2 (Door side)', phone: '+91 9876543210', email: 'aditya.cs@college.edu' },
     { name: 'Vikram Rao', branch: 'Information Tech (3rd Year)', bed: 'Bed 3 (Balcony side)', phone: '+91 9876543211', email: 'vikram.it@college.edu' },
@@ -23,11 +25,12 @@ const RoomDetails = ({ onBack }) => {
           <h3 className="fw-bold text-dark mb-1">📄 My Room & Roommate Details</h3>
           <p className="text-muted small mb-0">View your current room allocation, roommates and room inventory</p>
         </div>
-        {onBack && (
-          <button className="btn btn-outline-primary btn-sm rounded-pill px-3" onClick={onBack}>
-            ← Back to Dashboard
-          </button>
-        )}
+        <button 
+          className="btn btn-outline-primary btn-sm rounded-pill px-3" 
+          onClick={() => onBack ? onBack() : navigate('/dashboard')}
+        >
+          ← Back to Dashboard
+        </button>
       </div>
 
       {/* Main Room Card */}

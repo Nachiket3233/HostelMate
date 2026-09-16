@@ -1,7 +1,9 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './RoomAllocation.css';
 
 const RoomAllocation = ({ onBack }) => {
+  const navigate = useNavigate();
   const [selectedFloor, setSelectedFloor] = useState('all');
 
   const rooms = [
@@ -23,11 +25,12 @@ const RoomAllocation = ({ onBack }) => {
           <h3 className="fw-bold text-dark mb-1">🛏️ Apply for Room Allocation</h3>
           <p className="text-muted small mb-0">Browse available rooms and select your preferred sharing type</p>
         </div>
-        {onBack && (
-          <button className="btn btn-outline-primary btn-sm rounded-pill px-3" onClick={onBack}>
-            ← Back to Dashboard
-          </button>
-        )}
+        <button 
+          className="btn btn-outline-primary btn-sm rounded-pill px-3" 
+          onClick={() => onBack ? onBack() : navigate('/dashboard')}
+        >
+          ← Back to Dashboard
+        </button>
       </div>
 
       {/* Floor Filter Tabs */}
