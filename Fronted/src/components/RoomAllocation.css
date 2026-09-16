@@ -1,0 +1,38 @@
+﻿.room-allocation-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  padding: 28px;
+}
+
+.room-card-item {
+  border: 1.5px solid #eef2f6;
+  border-radius: 16px;
+  padding: 20px;
+  background: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.room-card-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+}
+
+.badge-available {
+  background: #dcfce7;
+  color: #15803d;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.badge-full {
+  background: #fee2e2;
+  color: #b91c1c;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+}

@@ -1,0 +1,19 @@
+﻿.complaints-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  padding: 28px;
+}
+
+.ticket-item {
+  background: #ffffff;
+  border: 1.5px solid #eef2f6;
+  border-radius: 16px;
+  padding: 18px;
+  transition: all 0.2s ease;
+}
+
+.ticket-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}

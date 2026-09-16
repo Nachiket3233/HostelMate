@@ -1,0 +1,14 @@
+﻿.payments-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  padding: 28px;
+}
+
+.payment-banner {
+  background: linear-gradient(135deg, #065f46 0%, #10b981 100%);
+  border-radius: 18px;
+  padding: 24px;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.25);
+}

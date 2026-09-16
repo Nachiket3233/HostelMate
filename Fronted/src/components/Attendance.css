@@ -1,0 +1,14 @@
+﻿.attendance-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  padding: 28px;
+}
+
+.qr-box {
+  border: 2px dashed #93c5fd;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  background: #eff6ff;
+}
