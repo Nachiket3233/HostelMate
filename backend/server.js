@@ -1,20 +1,32 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
+const connectDB = require('./config/db');
+const authRoutes = require('./routes/authRoutes');
 
 const app = express();
+
+// Middleware
 app.use(cors());
 app.use(express.json());
 
+// Connect Database
+connectDB();
 
-
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('MongoDB Connected Successfully!'))
-  .catch((err) => console.error('Connection Error:', err));
+// Routes
+app.use('/api/auth', authRoutes);
 
 app.get('/', (req, res) => {
   res.send('HostelMate Server Running');
+});
+
+// Error handling middleware for unexpected server errors
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({
+    success: false,
+    message: 'Internal Server Error',
+  });
 });
 
 const PORT = process.env.PORT || 5000;
