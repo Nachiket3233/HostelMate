@@ -1,6 +1,6 @@
 import React from 'react';
 
-// 📂 All Modular Components Imported in App.jsx
+//  All Modular Components Imported in App.jsx
 import Login from './components/Login.jsx';
 import Dashboard from './components/Dashboard.jsx';
 import RoomAllocation from './components/RoomAllocation.jsx';
@@ -25,4 +25,4 @@ function App() {
 }
 
 export default App;
-
+

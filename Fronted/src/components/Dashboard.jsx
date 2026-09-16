@@ -166,7 +166,7 @@ const Dashboard = ({ onLogout }) => {
         {/* Top Header */}
         <header className="dashboard-header">
           <div className="greeting-text">
-            <h2>{getGreeting()}, Rahul Sharma 👋</h2>
+            <h2>{getGreeting()}, Rahul Sharma </h2>
             <p>Stay comfortable, stay productive!</p>
           </div>
           
