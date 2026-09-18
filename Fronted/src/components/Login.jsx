@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
 const Login = ({ onLoginSuccess }) => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   
@@ -23,10 +25,13 @@ const Login = ({ onLoginSuccess }) => {
     }
 
     // Agar dono sahi hain:
+    alert('✓ Login Successful! Welcome to HostelMate Dashboard.');
     if (onLoginSuccess) {
       onLoginSuccess();
-    } else {
-      alert(`Success! Logged in as ${username}`);
+    }
+    const dashElement = document.querySelector('.dashboard-layout');
+    if (dashElement) {
+      dashElement.scrollIntoView({ behavior: 'smooth' });
     }
   };
 

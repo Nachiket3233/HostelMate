@@ -1,21 +1,28 @@
-import React, { useState } from 'react'
-import Login from './components/Login.jsx'
-import Dashboard from './components/Dashboard.jsx'
-import './App.css'
+import React from 'react';
+
+// 📂 All Modular Components Imported in App.jsx
+import Login from './components/Login.jsx';
+import Dashboard from './components/Dashboard.jsx';
+import RoomAllocation from './components/RoomAllocation.jsx';
+import RoomDetails from './components/RoomDetails.jsx';
+import Complaints from './components/Complaints.jsx';
+import Payments from './components/Payments.jsx';
+import Attendance from './components/Attendance.jsx';
+import './App.css';
 
 function App() {
-  // Direct Dashboard open karne ke liye default true kiya hai
-  const [isLoggedIn, setIsLoggedIn] = useState(true)
-
   return (
     <>
-      {!isLoggedIn ? (
-        <Login onLoginSuccess={() => setIsLoggedIn(true)} />
-      ) : (
-        <Dashboard onLogout={() => setIsLoggedIn(false)} />
-      )}
+      <Login />
+      <Dashboard />
+      <RoomAllocation />
+      <RoomDetails />
+      <Complaints />
+      <Payments />
+      <Attendance />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
+

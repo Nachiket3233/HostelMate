@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 
 // 📂 Separate Page Components (Inside components folder)
@@ -9,6 +10,7 @@ import Payments from './Payments.jsx';
 import Attendance from './Attendance.jsx';
 
 const Dashboard = ({ onLogout }) => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('dashboard');
   
   // 📸 Profile Photo State & One-time Lock Workflow
@@ -145,7 +147,13 @@ const Dashboard = ({ onLogout }) => {
 
         {/* Sidebar Bottom (Logout) */}
         <div className="sidebar-bottom">
-          <button className="logout-btn" onClick={onLogout}>
+          <button 
+            className="logout-btn" 
+            onClick={() => {
+              if (onLogout) onLogout();
+              navigate('/login');
+            }}
+          >
             <span>🚪</span>
             <span>Logout</span>
           </button>
@@ -158,7 +166,7 @@ const Dashboard = ({ onLogout }) => {
         {/* Top Header */}
         <header className="dashboard-header">
           <div className="greeting-text">
-            <h2>{getGreeting()}, Rahul Sharma 👋</h2>
+            <h2>{getGreeting()}, Rahul Sharma </h2>
             <p>Stay comfortable, stay productive!</p>
           </div>
           
