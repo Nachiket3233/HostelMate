@@ -10,7 +10,7 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // @access  Public
 const register = async (req, res) => {
   try {
-    const { name, email, password, phone, address } = req.body;
+    const { name, email, password, phone, address, role } = req.body;
 
     // 1. Validate required fields
     if (!name || !email || !password) {
@@ -41,14 +41,16 @@ const register = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // 5. Create student user in MongoDB
+    const userRole = role && ['admin', 'student'].includes(role) ? role : 'student';
+
+    // 5. Create user in MongoDB
     await User.create({
       name,
       email: email.toLowerCase(),
       password: hashedPassword,
       phone: phone || '',
       address: address || '',
-      role: 'student',
+      role: userRole,
     });
 
     // 6. Return success response (never return password)

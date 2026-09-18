@@ -3,10 +3,11 @@ const cors = require('cors');
 require('dotenv').config();
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
+const roomRoutes = require('./routes/roomRoutes');
 
 const app = express();
 
-// Middleware
+// Middleware to  comunicating our clinet and server
 app.use(cors());
 app.use(express.json());
 
@@ -15,6 +16,7 @@ connectDB();
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/rooms', roomRoutes);
 
 app.get('/', (req, res) => {
   res.send('HostelMate Server Running');
